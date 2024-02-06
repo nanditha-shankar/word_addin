@@ -1,5 +1,6 @@
 # Create a Word Add-in that produces content
 
+
 ## Summary
 
 Learn how to build a practical Office Add-in with cool features for content generation, utilizing either AI or predefined content. This sample will help you understand how to manage content in an Office Add-in.
@@ -36,20 +37,76 @@ If you prefer to run the sample with clear and step-by-step instructions, follow
 7. Start debugging the project by hitting the `F5` key in Visual Studio Code.
 
 ## Next steps
-You may explore additional resources at the following links:
-- [Office Add-ins code samples](https://github.com/OfficeDev/Office-Add-in-samples)
-- [Office Add-ins documentation](https://learn.microsoft.com/en-us/office/dev/add-ins/)
+=======
+[![Node.js build](https://github.com/microsoftgraph/msgraph-training-office-addin/actions/workflows/node.js.yml/badge.svg)](https://github.com/microsoftgraph/msgraph-training-office-addin/actions/workflows/node.js.yml) ![License.](https://img.shields.io/badge/license-MIT-green.svg)
 
-## Questions and feedback
-- - Did you experience any problems with the sample? [Create an issue]( https://github.com/OfficeDev/Word-Scenario-based-Add-in-Samples/issues/new) and we'll help you out.
-- We'd love to get your feedback about this sample. Go to our [Office samples survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8GFRbAYEV9Hmqgjcbr7lOdUNVAxQklNRkxCWEtMMFRFN0xXUFhYVlc5Ni4u) to give feedback and suggest improvements.
-- For general questions about developing Office Add-ins, go to [Microsoft Q&A](https://learn.microsoft.com/answers/topics/office-js-dev.html) using the office-js-dev tag.
+This sample shows a practical Word Add-in with content insertion features, utilizing either AI or predefined content. 
+
+## How the sample add-in works
+### Features
+Import a document template:
+![image](./assets/feature1.png)
+
+### Play the sample add-in demo
+Click the button below and play the sample add-in demo:<br><br>
+[<img src="assets/button.png" width="180"/>](https://office.live.com/start/Word.aspx?culture=en-US&omextemplateclient=Word&omexsessionid=0a1dfc7b-e965-4436-a8a0-2cb908ca19ea&omexcampaignid=none&templateid=WA200006289&templatetitle=AI%20Content%20Generation%20Add-in%20for%20Word&omexsrctype=1)
+<br><br>
+When you click the button, you will open Word online in a new browser tab, and the sample add-in will launch automatically.
+#### Note：
+- You need to have a Microsoft 365 account to try the sample. You can [sign up for the Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program) to get a free Microsoft 365 subscription.
+- **[Optional]** If you're interested in exploring AIGC, follow the procedure to request an Azure OpenAI service account. Find more details at [Deploy a model and generate text using Azure OpenAI Service](https://learn.microsoft.com/en-us/azure/ai-services/openai/quickstart?tabs=command-line%2Cpython&pivots=rest-api)
+
+Customize the document style:
+![image](./assets/feature3.png)
+
+Insert predefined image into the document:
+![image](./assets/feature4.png)
+
+## Build, run and debug the sample code 
+### Prerequisites
+- Install a recent version of [npm](https://www.npmjs.com/get-npm) and [Node.js](https://nodejs.org/) on your computer. To verify if you've already installed these tools, run the commands `node -v` and `npm -v` in your terminal.
+- You need to have a Microsoft 365 account to launch the sample. You can [sign up for the Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program) to get a free Microsoft 365 subscription.
+   
+### Manually run on your local machine
+To run the sample on desktop, please follow the detailed steps provided below.
+1. Run command below to clone the repo and install the project dependency.
+   ```console
+   git clone https://github.com/OfficeDev/Word-Scenario-based-Add-in-Samples.git && cd Word-Scenario-based-Add-in-Samples/Word-Add-in-AIGC && npm install
+   ```
+3. Open the `Word-Scenario-based-Add-in-Samples/Word-Add-in-AIGC` folder in Visual Studio Code. You can see the sample code and make code changes to the sample.
+4. Run the following command in your CLI to start the sample add-in on desktop.
+   ```console
+   npm run start
+   ```
+5. To start debug on Word online, please follow the following steps to sideload the `manifest.xml` file on web.<br>
+   > 1.  Keep the webpack server on to host your sample add-in.
+   > 1.  Open [Office on the web](https://office.live.com/).
+   > 1.  Choose **Word**, and then open a new document.
+   > 1.  On the **Home** tab, in the **Add-ins** section, choose **Add-ins** and click **More Add-ins** on the lower-right corner to open Add-in Store Page.
+        ![image](assets/Sideload_entry.png)
+   >
+   > 1.  On the **Office Add-ins** dialog, select the **MY ADD-INS** tab, choose **Manage My Add-ins**, and then **Upload My Add-in**.
+        ![image](assets/upload-manifest.png)
+   >
+   > 1.  Browse to the add-in `Word-Scenario-based-Add-in-Samples/Word-Add-in-AIGC/manifest.xml` file, and then select **Upload**.
+        ![image](assets/manifest_location.png)
+   >
+   > 1.  Verify that the add-in loaded successfully. 
+6. **[Optional]** If you're interested in exploring AIGC, with prerequisites all satisfied, you can fill in the parameters apiKey, endpoint and deployment in `src/taskpane/components/utility/AIData.tsx` to persist the Azure OpenAI account.
+
+## Additional resources
+You may explore additional resources at the following links:
+- More samples: [Office Add-ins code samples](https://github.com/OfficeDev/Office-Add-in-samples)
+- Office add-ins documentation: [Office Add-ins documentation](https://learn.microsoft.com/en-us/office/dev/add-ins/)
+
+## Feedback
+Did you experience any problems with the sample? [Create an issue]( https://github.com/OfficeDev/Word-Scenario-based-Add-in-Samples/issues/new) and we'll help you out.
+
+Let us know your experience using our sample code for Office add-in development: [Sample survey](https://aka.ms/OfficeDevSampleSurvey).
 
 ## Copyright
 Copyright (c) 2021 Microsoft Corporation. All rights reserved.
-
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information, see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
-
 **Note**: The taskpane.html file contains an image URL that tracks diagnostic data for this sample add-in. Please remove the image tag if you reuse this sample in your own code project.
+<img src="https://pnptelemetry.azurewebsites.net/pnp-officeaddins/samples/word-add-in-aigc-readme">
 
-<img src="https://pnptelemetry.azurewebsites.net/pnp-officeaddins/samples/word-add-in-aigc">
